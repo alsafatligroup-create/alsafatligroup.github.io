@@ -1,155 +1,651 @@
-I want you to rebuild the current ALSAFATLI GROUP website design you created, but now optimize the final code specifically for GitHub Pages.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-IMPORTANT:
-Do not redesign the website.
-Do not simplify the visual design unnecessarily.
-Keep the same overall visual identity, layout, typography, sections, spacing, colors, and elegant style from the current design.
+  <title>ALSAFATLI GROUP</title>
 
-The final website must be a simple, reliable, static GitHub Pages website.
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-TECHNICAL REQUIREMENTS:
+    html {
+      scroll-behavior: smooth;
+    }
 
-1. Use ONLY:
-- HTML
-- CSS
-- Vanilla JavaScript only if absolutely necessary
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #f2f0e8;
+      background:
+        linear-gradient(rgba(8, 12, 10, 0.78), rgba(8, 12, 10, 0.88)),
+        url("./images/marble-background.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-color: #101411;
+      line-height: 1.7;
+    }
 
-2. Do NOT use:
-- React
-- Vue
-- Angular
-- Next.js
-- Vite
-- npm
-- Node.js
-- Tailwind
-- Bootstrap
-- external frameworks
-- build tools
-- server-side code
-- databases
-- APIs that require a server
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
 
-3. The website must work by simply placing:
-index.html
-and its image files
-inside a GitHub Pages repository.
+    /* HEADER */
 
-4. All image paths must be simple relative paths, for example:
-./images/logo.png
-./images/mar-taqla.jpg
-./images/joly.jpg
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+    }
 
-5. Do NOT use:
-- base64 images
-- blob URLs
-- local computer paths
-- C:\ paths
-- file:// paths
-- temporary Claude URLs
-- external image hosting
+    .hero {
+      width: 100%;
+      max-width: 1050px;
+      padding: 70px 30px;
+      background: rgba(8, 12, 10, 0.62);
+      border: 1px solid rgba(214, 197, 138, 0.28);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(3px);
+    }
 
-6. Create the website so that all images can later be replaced easily.
+    .logo-placeholder {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      border: 1px solid rgba(214, 197, 138, 0.55);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d6c58a;
+      font-size: 14px;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
 
-For example, use:
-<img src="./images/logo.png" alt="ALSAFATLI GROUP">
+    h1 {
+      margin: 0;
+      color: #d6c58a;
+      font-size: 52px;
+      font-weight: 600;
+      letter-spacing: 5px;
+    }
 
-and clearly indicate the image filenames that I need to upload.
+    .tagline {
+      margin: 18px 0 0;
+      color: #f1ead5;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+    }
 
-7. If an image is missing, the website must NOT break.
-Use a clean fallback background or placeholder.
+    .hero-line {
+      width: 90px;
+      height: 1px;
+      background: #b9a866;
+      margin: 30px auto;
+    }
 
-8. Do NOT depend on any image file with spaces or unusual filenames.
-Use simple filenames such as:
-logo.png
-mar-taqla.jpg
-joly.jpg
-marble-background.jpg
+    .hero-description {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #d9ddd5;
+      font-size: 16px;
+    }
 
-9. The main background should preserve the current elegant ALSAFATLI identity:
-- black / charcoal
-- deep dark green
-- subtle natural green marble texture
-- very subtle gold accents
-- elegant
-- premium
-- not overly dark
-- not complicated
+    .arabic {
+      direction: rtl;
+      font-size: 16px;
+      color: #cfd4cc;
+      margin-top: 8px;
+    }
 
-If a marble background image is required, make it optional.
-The website must still look good if the marble image is temporarily missing.
+    /* NAVIGATION */
 
-10. Make the page fully responsive for:
-- desktop
-- tablet
-- mobile
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9, 12, 10, 0.94);
+      border-top: 1px solid rgba(214, 197, 138, 0.15);
+      border-bottom: 1px solid rgba(214, 197, 138, 0.25);
+      backdrop-filter: blur(10px);
+    }
 
-11. Keep the current sections:
-- Hero
-- About Us
-- Our Branches
-- Our Services
-- Our Standards
-- Footer
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding: 15px 20px;
+    }
 
-12. Keep the bilingual English + Arabic content and RTL Arabic formatting.
+    nav a {
+      color: #ddd8c7;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
 
-13. Keep these exact brand details:
+    nav a:hover {
+      color: #d6c58a;
+    }
 
-ALSAFATLI GROUP
+    /* GENERAL */
 
-Hospitality Excellence Through Standards
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 25px;
+    }
 
-مجموعة الصفتلي للضيافة
+    .section-box {
+      background: rgba(8, 12, 10, 0.72);
+      border: 1px solid rgba(214, 197, 138, 0.18);
+      padding: 55px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    }
 
-التميز في الضيافة من خلال المعايير
+    h2 {
+      margin: 0 0 12px;
+      text-align: center;
+      color: #d6c58a;
+      font-size: 31px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
 
-Restaurants:
-MAR TAQLA Restaurant
-Maaloula, Syria
+    .section-title-ar {
+      text-align: center;
+      direction: rtl;
+      color: #bfc5bb;
+      margin-bottom: 35px;
+    }
 
-Joly Restaurant & Café
-Bab Touma, Old Damascus, Syria
+    .gold-line {
+      width: 65px;
+      height: 1px;
+      background: #b9a866;
+      margin: 20px auto 35px;
+    }
 
-14. The official ALSAFATLI logo will be added later.
-For now create a clean logo area that can easily be replaced by:
-./images/logo.png
+    p {
+      color: #e2e4df;
+      font-size: 16px;
+    }
 
-15. Make image areas for:
-- ALSAFATLI GROUP logo
-- MAR TAQLA image
-- JOLY image
-- optional gallery images later
+    /* ABOUT */
 
-16. The code must be clean and self-contained.
+    .about-text {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
 
-17. Most importantly:
-The final result must work directly on GitHub Pages without any build process.
+    /* BRANCHES */
 
-18. Put all CSS inside index.html for maximum reliability.
+    .branches {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 35px;
+    }
 
-19. If JavaScript is not necessary, do not use it.
+    .branch {
+      background: rgba(15, 21, 17, 0.82);
+      border: 1px solid rgba(214, 197, 138, 0.22);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
 
-20. Do not include any explanatory text inside the code that could accidentally break HTML or CSS.
+    .branch:hover {
+      transform: translateY(-5px);
+      border-color: rgba(214, 197, 138, 0.5);
+    }
 
-Before giving me the final code, check the entire HTML and CSS carefully for:
-- invalid CSS
-- missing brackets
-- broken HTML tags
-- broken image paths
-- unsupported syntax
-- accidental text inside CSS
-- external dependencies
-- JavaScript errors
-- anything that could prevent GitHub Pages from displaying the page
+    .branch-image {
+      height: 260px;
+      background:
+        linear-gradient(rgba(20, 30, 24, 0.45), rgba(5, 8, 6, 0.72));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
 
-I want ONE final complete index.html file that I can copy and paste directly into GitHub.
+    .branch-content {
+      padding: 28px;
+      text-align: center;
+    }
 
-Do not give me partial code.
-Do not give me a framework project.
-Do not give me multiple files unless absolutely necessary.
+    .branch h3 {
+      color: #d6c58a;
+      font-size: 23px;
+      margin: 0 0 8px;
+      font-weight: 500;
+    }
 
-Preserve as much as possible from the design you already created.
-Only make changes necessary to ensure reliable GitHub Pages compatibility.
+    .branch .location {
+      color: #aeb7aa;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
 
-At the very end, give me a short list of the image filenames that I should upload into an /images/ folder.
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .service {
+      padding: 28px;
+      background: rgba(15, 21, 17, 0.72);
+      border-left: 2px solid #9e8d4e;
+    }
+
+    .service h3 {
+      margin: 0 0 8px;
+      color: #d6c58a;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .service p {
+      margin: 0;
+      color: #cdd1ca;
+      font-size: 14px;
+    }
+
+    /* STANDARDS */
+
+    .standards {
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .standards strong {
+      color: #d6c58a;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: rgba(6, 9, 7, 0.96);
+      border-top: 1px solid rgba(214, 197, 138, 0.22);
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    footer h3 {
+      margin: 0 0 8px;
+      color: #d6c58a;
+      letter-spacing: 3px;
+      font-weight: 500;
+    }
+
+    footer p {
+      margin: 5px 0;
+      color: #9fa69d;
+      font-size: 13px;
+    }
+
+    .footer-arabic {
+      direction: rtl;
+      color: #aaa;
+      margin-top: 12px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      header {
+        min-height: 90vh;
+        padding: 35px 15px;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+
+      h1 {
+        font-size: 34px;
+        letter-spacing: 3px;
+      }
+
+      .tagline {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 55px 15px;
+      }
+
+      .section-box {
+        padding: 30px 20px;
+      }
+
+      .branches,
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .branch-image {
+        height: 220px;
+      }
+
+      .nav-inner {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- HERO -->
+
+  <header id="home">
+
+    <div class="hero">
+
+      <div class="logo-placeholder">
+        LOGO
+      </div>
+
+      <h1>ALSAFATLI GROUP</h1>
+
+      <div class="hero-line"></div>
+
+      <div class="tagline">
+        Hospitality Excellence Through Standards
+      </div>
+
+      <div class="arabic">
+        التميز في الضيافة من خلال المعايير
+      </div>
+
+      <p class="hero-description">
+        Restaurant Brands • Hospitality Management • Restaurant Consulting
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#about">About Us</a>
+      <a href="#branches">Our Branches</a>
+      <a href="#services">Our Services</a>
+      <a href="#standards">Our Standards</a>
+    </div>
+  </nav>
+
+
+  <!-- ABOUT -->
+
+  <section class="section" id="about">
+
+    <div class="section-box">
+
+      <h2>About Us</h2>
+
+      <div class="section-title-ar">
+        من نحن
+      </div>
+
+      <div class="gold-line"></div>
+
+      <div class="about-text">
+
+        <p>
+          ALSAFATLI GROUP is a hospitality group focused on creating,
+          developing and managing distinctive restaurant brands.
+          Our approach combines authentic identity, professional
+          operations and consistent standards to create memorable
+          guest experiences.
+        </p>
+
+        <p class="arabic">
+          مجموعة الصفتلي للضيافة هي مجموعة متخصصة في تطوير وإدارة
+          العلامات التجارية للمطاعم، من خلال الجمع بين الهوية الأصيلة
+          والإدارة المهنية والمعايير التشغيلية الواضحة لتقديم تجربة
+          ضيافة مميزة ومستدامة.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BRANCHES -->
+
+  <section class="section" id="branches">
+
+    <div class="section-box">
+
+      <h2>Our Branches</h2>
+
+      <div class="section-title-ar">
+        فروعنا
+      </div>
+
+      <div class="gold-line"></div>
+
+      <div class="branches">
+
+        <!-- MAR TAQLA -->
+
+        <div class="branch">
+
+          <div class="branch-image">
+            MAR TAQLA IMAGE
+          </div>
+
+          <div class="branch-content">
+
+            <h3>MAR TAQLA Restaurants</h3>
+
+            <div class="location">
+              Maaloula, Syria
+            </div>
+
+            <p class="arabic">
+              مطاعم مار تقلا
+            </p>
+
+            <p>
+              A distinctive hospitality destination in the historic
+              town of Maaloula, bringing together Syrian heritage,
+              cuisine and hospitality.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- JOLY -->
+
+        <div class="branch">
+
+          <div class="branch-image">
+            JOLY IMAGE
+          </div>
+
+          <div class="branch-content">
+
+            <h3>Joly Restaurant &amp; Café</h3>
+
+            <div class="location">
+              Bab Touma, Old Damascus, Syria
+            </div>
+
+            <p class="arabic">
+              مطعم وكافيه جولي
+            </p>
+
+            <p>
+              A restaurant and café located in the heart of
+              Bab Touma in Old Damascus.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section class="section" id="services">
+
+    <div class="section-box">
+
+      <h2>Our Services</h2>
+
+      <div class="section-title-ar">
+        خدماتنا
+      </div>
+
+      <div class="gold-line"></div>
+
+      <div class="services">
+
+        <div class="service">
+          <h3>Restaurant Brand Development</h3>
+          <p>
+            Developing restaurant concepts, identities and
+            guest experiences with a clear and consistent brand direction.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Hospitality Management</h3>
+          <p>
+            Professional management systems designed to improve
+            operations, service quality and overall performance.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Restaurant Consulting</h3>
+          <p>
+            Practical consulting support for restaurant development,
+            operations, standards and performance improvement.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Operations &amp; Standards</h3>
+          <p>
+            Establishing clear operating procedures and hospitality
+            standards that support consistency and quality.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STANDARDS -->
+
+  <section class="section" id="standards">
+
+    <div class="section-box">
+
+      <div class="standards">
+
+        <h2>Our Standards</h2>
+
+        <div class="section-title-ar">
+          معاييرنا
+        </div>
+
+        <div class="gold-line"></div>
+
+        <p>
+          We believe that excellence in hospitality is built through
+          consistency, attention to detail, professional operations
+          and genuine care for every guest.
+        </p>
+
+        <p class="arabic">
+          نؤمن بأن التميز في الضيافة يُبنى من خلال الاستمرارية،
+          والاهتمام بالتفاصيل، والإدارة المهنية، والحرص الحقيقي
+          على تجربة كل ضيف.
+        </p>
+
+        <p>
+          <strong>Hospitality Excellence Through Standards</strong>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h3>ALSAFATLI GROUP</h3>
+
+    <p>
+      Hospitality Excellence Through Standards
+    </p>
+
+    <p class="footer-arabic">
+      مجموعة الصفتلي للضيافة
+    </p>
+
+    <p>
+      Restaurant Brands • Hospitality Management • Restaurant Consulting
+    </p>
+
+  </footer>
+
+</div>
+
+</body>
+</html>
