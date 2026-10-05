@@ -1,656 +1,965 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ALSAFATLI GROUP</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #f2f0e8;
-
-      /* Claude's original dark emerald marble background.
-         If the image is missing, the dark background still works. */
-      background:
-        linear-gradient(rgba(8, 12, 10, 0.78), rgba(8, 12, 10, 0.88)),
-        url("./Emerald Marble Luxury Panels.png");
-
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-color: #101411;
-
-      line-height: 1.7;
-    }
-
-    .page {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    /* HEADER */
-
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px;
-      position: relative;
-    }
-
-    .hero {
-      width: 100%;
-      max-width: 1050px;
-      padding: 70px 30px;
-      background: rgba(8, 12, 10, 0.62);
-      border: 1px solid rgba(214, 197, 138, 0.28);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-    }
-
-    .logo-placeholder {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 30px;
-      border: 1px solid rgba(214, 197, 138, 0.55);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #d6c58a;
-      font-size: 14px;
-      letter-spacing: 2px;
-      opacity: 0.9;
-    }
-
-    h1 {
-      margin: 0;
-      color: #d6c58a;
-      font-size: 52px;
-      font-weight: 600;
-      letter-spacing: 5px;
-    }
-
-    .tagline {
-      margin: 18px 0 0;
-      color: #f1ead5;
-      font-size: 22px;
-      letter-spacing: 1.5px;
-    }
-
-    .hero-line {
-      width: 90px;
-      height: 1px;
-      background: #b9a866;
-      margin: 30px auto;
-    }
-
-    .hero-description {
-      max-width: 760px;
-      margin: 0 auto;
-      color: #d9ddd5;
-      font-size: 16px;
-    }
-
-    .arabic {
-      direction: rtl;
-      font-size: 16px;
-      color: #cfd4cc;
-      margin-top: 8px;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(9, 12, 10, 0.94);
-      border-top: 1px solid rgba(214, 197, 138, 0.15);
-      border-bottom: 1px solid rgba(214, 197, 138, 0.25);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 28px;
-      padding: 15px 20px;
-    }
-
-    nav a {
-      color: #ddd8c7;
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    nav a:hover {
-      color: #d6c58a;
-    }
-
-    /* GENERAL */
-
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 90px 25px;
-    }
-
-    .section-box {
-      background: rgba(8, 12, 10, 0.72);
-      border: 1px solid rgba(214, 197, 138, 0.18);
-      padding: 55px;
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      text-align: center;
-      color: #d6c58a;
-      font-size: 31px;
-      font-weight: 500;
-      letter-spacing: 2px;
-    }
-
-    .section-title-ar {
-      text-align: center;
-      direction: rtl;
-      color: #bfc5bb;
-      margin-bottom: 35px;
-    }
-
-    .gold-line {
-      width: 65px;
-      height: 1px;
-      background: #b9a866;
-      margin: 20px auto 35px;
-    }
-
-    p {
-      color: #e2e4df;
-      font-size: 16px;
-    }
-
-    /* ABOUT */
-
-    .about-text {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    /* BRANCHES */
-
-    .branches {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-top: 35px;
-    }
-
-    .branch {
-      background: rgba(15, 21, 17, 0.82);
-      border: 1px solid rgba(214, 197, 138, 0.22);
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .branch:hover {
-      transform: translateY(-5px);
-      border-color: rgba(214, 197, 138, 0.5);
-    }
-
-    .branch-image {
-      height: 260px;
-      background:
-        linear-gradient(rgba(20, 30, 24, 0.45), rgba(5, 8, 6, 0.72));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-
-    .branch-content {
-      padding: 28px;
-      text-align: center;
-    }
-
-    .branch h3 {
-      color: #d6c58a;
-      font-size: 23px;
-      margin: 0 0 8px;
-      font-weight: 500;
-    }
-
-    .branch .location {
-      color: #aeb7aa;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 35px;
-    }
-
-    .service {
-      padding: 28px;
-      background: rgba(15, 21, 17, 0.72);
-      border-left: 2px solid #9e8d4e;
-    }
-
-    .service h3 {
-      margin: 0 0 8px;
-      color: #d6c58a;
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    .service p {
-      margin: 0;
-      color: #cdd1ca;
-      font-size: 14px;
-    }
-
-    /* STANDARDS */
-
-    .standards {
-      text-align: center;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .standards strong {
-      color: #d6c58a;
-      font-weight: 500;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: rgba(6, 9, 7, 0.96);
-      border-top: 1px solid rgba(214, 197, 138, 0.22);
-      text-align: center;
-      padding: 45px 20px;
-    }
-
-    footer h3 {
-      margin: 0 0 8px;
-      color: #d6c58a;
-      letter-spacing: 3px;
-      font-weight: 500;
-    }
-
-    footer p {
-      margin: 5px 0;
-      color: #9fa69d;
-      font-size: 13px;
-    }
-
-    .footer-arabic {
-      direction: rtl;
-      color: #aaa;
-      margin-top: 12px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-      header {
-        min-height: 90vh;
-        padding: 35px 15px;
-      }
-
-      .hero {
-        padding: 50px 20px;
-      }
-
-      h1 {
-        font-size: 34px;
-        letter-spacing: 3px;
-      }
-
-      .tagline {
-        font-size: 18px;
-      }
-
-      .section {
-        padding: 55px 15px;
-      }
-
-      .section-box {
-        padding: 30px 20px;
-      }
-
-      .branches,
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .branch-image {
-        height: 220px;
-      }
-
-      .nav-inner {
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 11px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALSAFATLI GROUP</title>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:#070a08;
+  color:#eee9dc;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.page{
+  width:100%;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(4,8,6,.86),rgba(4,8,6,.94)),
+    url("./Emerald Marble Luxury Panels.png");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:610px;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:#080b09;
+}
+
+.hero-marble{
+  position:absolute;
+  inset:0;
+  opacity:.28;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 120px,
+      rgba(48,91,65,.22) 123px,
+      transparent 128px
+    ),
+    repeating-linear-gradient(
+      35deg,
+      transparent 0 210px,
+      rgba(193,172,102,.07) 213px,
+      transparent 218px
+    );
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,6,4,.94) 0%,
+      rgba(4,8,6,.70) 45%,
+      rgba(4,8,6,.32) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(4,7,5,.96),
+      transparent 58%
+    );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1180px;
+  margin:auto;
+  padding:70px 28px 64px;
+}
+
+.brand-mark{
+  position:absolute;
+  right:35px;
+  top:35px;
+  width:94px;
+  height:94px;
+  border:1px solid rgba(205,187,120,.65);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#d5c487;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  letter-spacing:2px;
+  line-height:1.5;
+  background:rgba(5,9,7,.45);
+}
+
+.eyebrow{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
+  letter-spacing:5px;
+  color:#cdbb78;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,86px);
+  line-height:.95;
+  font-weight:400;
+  letter-spacing:6px;
+  margin:0;
+  max-width:850px;
+}
+
+.hero-rule{
+  width:90px;
+  height:1px;
+  background:#cdbb78;
+  margin:30px 0;
+}
+
+.hero-tag{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:18px;
+  letter-spacing:1.5px;
+  color:#eee8d8;
+  max-width:650px;
+}
+
+.hero-ar{
+  direction:rtl;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:18px;
+  color:#b9c2b8;
+  margin-top:10px;
+}
+
+/* NAVIGATION */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  justify-content:center;
+  gap:4px;
+  flex-wrap:wrap;
+  background:rgba(7,10,8,.97);
+  border-bottom:1px solid rgba(205,187,120,.22);
+  padding:9px 12px;
+}
+
+nav a{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#bfc4bc;
+  text-decoration:none;
+  padding:11px 15px;
+}
+
+nav a:hover{
+  color:#d5c487;
+}
+
+/* GENERAL */
+
+.section{
+  padding:90px 28px;
+  max-width:1180px;
+  margin:auto;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-head .kicker{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:#9d8b50;
+  margin-bottom:12px;
+}
+
+h2{
+  font-size:clamp(30px,4vw,48px);
+  font-weight:400;
+  line-height:1.1;
+  margin:0 0 12px;
+  color:#d5c487;
+}
+
+.arabic-title{
+  direction:rtl;
+  color:#8f9a90;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:15px;
+  margin-bottom:28px;
+}
+
+p{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:15px;
+  line-height:1.9;
+  color:#c2c8c1;
+  margin:0 0 18px;
+}
+
+/* ABOUT */
+
+.intro{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  max-width:1180px;
+  margin:auto;
+  min-height:420px;
+}
+
+.intro-copy{
+  padding:75px 55px 75px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.intro-copy .ar{
+  direction:rtl;
+  text-align:right;
+  color:#aeb7ae;
+}
+
+.intro-photo{
+  min-height:420px;
+  background:#111;
+  overflow:hidden;
+}
+
+.intro-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.82) contrast(1.03);
+}
+
+/* RESTAURANTS */
+
+.restaurants{
+  display:grid;
+  grid-template-columns:1.25fr .9fr;
+  gap:22px;
+}
+
+.restaurant{
+  position:relative;
+  min-height:510px;
+  overflow:hidden;
+  background:#101612;
+  border:1px solid rgba(205,187,120,.14);
+}
+
+.restaurant-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.restaurant-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(3,6,4,.97),
+      rgba(3,6,4,.05) 70%
+    );
+  z-index:1;
+}
+
+.restaurant-content{
+  position:absolute;
+  z-index:2;
+  left:28px;
+  right:28px;
+  bottom:27px;
+}
+
+.restaurant-content small{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+  color:#cdbb78;
+}
+
+.restaurant-content h3{
+  font-size:34px;
+  font-weight:400;
+  margin:8px 0;
+  color:#f0eadb;
+}
+
+.restaurant-content .ar{
+  direction:rtl;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:14px;
+  color:#b9c0b8;
+  margin-bottom:9px;
+}
+
+.restaurant-content p{
+  font-size:13px;
+  max-width:560px;
+  margin:0;
+}
+
+/* MAR TAQLA EMPTY IMAGE */
+
+.mar-taqla-empty{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,31,24,.92),
+      rgba(5,9,7,.98)
+    );
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.mar-taqla-empty span{
+  border:1px solid rgba(205,187,120,.22);
+  padding:15px 22px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+  color:rgba(205,187,120,.45);
+}
+
+/* SERVICES */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(205,187,120,.22);
+  border-bottom:1px solid rgba(205,187,120,.22);
+}
+
+.service{
+  padding:30px 20px;
+  border-right:1px solid rgba(205,187,120,.14);
+}
+
+.service:last-child{
+  border-right:0;
+}
+
+.service span{
+  display:block;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#9d8b50;
+  margin-bottom:13px;
+}
+
+.service h3{
+  font-size:19px;
+  font-weight:400;
+  color:#e7e1d2;
+  margin:0 0 9px;
+}
+
+.service p{
+  font-size:12px;
+  margin:0;
+  color:#9da59d;
+  line-height:1.65;
+}
+
+/* GALLERY */
+
+.gallery{
+  display:grid;
+  grid-template-columns:1.5fr .75fr .75fr;
+  grid-template-rows:220px 220px;
+  gap:8px;
+}
+
+.gallery-item{
+  overflow:hidden;
+  background:#111612;
+}
+
+.gallery-item.big{
+  grid-row:1 / 3;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.78);
+}
+
+.gallery-empty{
+  width:100%;
+  height:100%;
+  background:
+    linear-gradient(
+      145deg,
+      #111a14,
+      #070b08
+    );
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.gallery-empty span{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:9px;
+  letter-spacing:2px;
+  color:rgba(205,187,120,.3);
+}
+
+/* STANDARDS */
+
+.standards{
+  max-width:820px;
+  margin:auto;
+  text-align:center;
+  padding:55px 30px;
+  border:1px solid rgba(205,187,120,.22);
+  background:
+    linear-gradient(
+      145deg,
+      #101712,
+      #080c0a
+    );
+}
+
+.quote{
+  font-size:27px;
+  line-height:1.45;
+  color:#e7e1d2;
+  margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid rgba(205,187,120,.22);
+  padding:50px 28px;
+  text-align:center;
+  background:#050705;
+}
+
+footer .name{
+  font-size:20px;
+  letter-spacing:5px;
+  color:#d5c487;
+}
+
+footer .ar{
+  direction:rtl;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:13px;
+  color:#8f988f;
+  margin:10px 0;
+}
+
+footer p{
+  font-size:11px;
+  color:#687169;
+  margin:0;
+}
+
+/* MOBILE */
+
+@media(max-width:760px){
+
+  .brand-mark{
+    width:68px;
+    height:68px;
+    right:18px;
+    top:18px;
+    font-size:8px;
+  }
+
+  .hero-content{
+    padding:120px 22px 55px;
+  }
+
+  .intro{
+    grid-template-columns:1fr;
+  }
+
+  .intro-copy{
+    padding:55px 22px;
+  }
+
+  .intro-photo{
+    min-height:300px;
+  }
+
+  .restaurants{
+    grid-template-columns:1fr;
+  }
+
+  .restaurant{
+    min-height:420px;
+  }
+
+  .services{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .service:nth-child(2){
+    border-right:0;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:220px 160px;
+  }
+
+  .gallery-item.big{
+    grid-row:auto;
+    grid-column:1 / 3;
+  }
+}
+
+@media(max-width:440px){
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .service{
+    border-right:0;
+    border-bottom:1px solid rgba(205,187,120,.14);
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+    grid-template-rows:260px 180px 180px;
+  }
+
+  .gallery-item.big{
+    grid-column:auto;
+    grid-row:auto;
+  }
+
+  nav a{
+    font-size:10px;
+    padding:9px 8px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <div class="page">
 
-  <!-- HERO -->
+<section class="hero" id="home">
 
-  <header id="home">
+  <div class="hero-marble"></div>
+  <div class="hero-overlay"></div>
 
-    <div class="hero">
+  <div class="brand-mark">
+    ALSAFATLI<br>
+    GROUP
+  </div>
 
-      <div class="logo-placeholder">
-        LOGO
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      ALSAFATLI GROUP · SYRIA
+    </div>
+
+    <h1>
+      Hospitality<br>
+      with Identity.
+    </h1>
+
+    <div class="hero-rule"></div>
+
+    <div class="hero-tag">
+      Hospitality Excellence Through Standards
+    </div>
+
+    <div class="hero-ar">
+      التميز في الضيافة من خلال المعايير
+    </div>
+
+  </div>
+
+</section>
+
+
+<nav>
+
+  <a href="#about">ABOUT</a>
+  <a href="#restaurants">RESTAURANTS</a>
+  <a href="#services">SERVICES</a>
+  <a href="#gallery">GALLERY</a>
+  <a href="#standards">STANDARDS</a>
+  <a href="#contact">CONTACT</a>
+
+</nav>
+
+
+<section id="about" class="intro">
+
+  <div class="intro-copy">
+
+    <div class="eyebrow">
+      THE GROUP
+    </div>
+
+    <h2>
+      Built around authentic hospitality.
+    </h2>
+
+    <div class="arabic-title">
+      مجموعة الصفتلي للضيافة
+    </div>
+
+    <p>
+      ALSAFATLI GROUP develops and manages distinctive
+      restaurant and hospitality brands, bringing together
+      authentic identity, professional operations and
+      consistent standards.
+    </p>
+
+    <p class="ar">
+      نطوّر وندير علامات مميزة في المطاعم والضيافة،
+      من خلال الجمع بين الهوية الأصيلة والإدارة المهنية
+      والمعايير الواضحة.
+    </p>
+
+  </div>
+
+  <div class="intro-photo">
+
+    <img
+      src="./images/joly.jpg"
+      alt="Joly Restaurant & Café"
+    >
+
+  </div>
+
+</section>
+
+
+<section id="restaurants" class="section">
+
+  <div class="section-head">
+
+    <div class="kicker">
+      OUR BRANDS
+    </div>
+
+    <h2>
+      Restaurants with a story.
+    </h2>
+
+    <div class="arabic-title">
+      مطاعمنا
+    </div>
+
+  </div>
+
+
+  <div class="restaurants">
+
+
+    <article class="restaurant">
+
+      <div class="mar-taqla-empty">
+        <span>
+          MAR TAQLA · IMAGE
+        </span>
       </div>
 
-      <h1>ALSAFATLI GROUP</h1>
+      <div class="restaurant-overlay"></div>
 
-      <div class="hero-line"></div>
+      <div class="restaurant-content">
 
-      <div class="tagline">
-        Hospitality Excellence Through Standards
+        <small>
+          MAALOULA · SYRIA
+        </small>
+
+        <h3>
+          MAR TAQLA Restaurant
+        </h3>
+
+        <div class="ar">
+          مطعم مار تقلا
+        </div>
+
+        <p>
+          A hospitality destination shaped by the heritage,
+          landscape and spirit of historic Maaloula.
+        </p>
+
       </div>
 
-      <div class="arabic">
-        التميز في الضيافة من خلال المعايير
+    </article>
+
+
+    <article class="restaurant">
+
+      <img
+        class="restaurant-image"
+        src="./images/joly.jpg"
+        alt="Joly Restaurant & Café"
+      >
+
+      <div class="restaurant-overlay"></div>
+
+      <div class="restaurant-content">
+
+        <small>
+          BAB TOUMA · OLD DAMASCUS
+        </small>
+
+        <h3>
+          Joly Restaurant &amp; Café
+        </h3>
+
+        <div class="ar">
+          مطعم وكافيه جولي
+        </div>
+
+        <p>
+          A distinctive restaurant and café in the heart
+          of Old Damascus.
+        </p>
+
       </div>
 
-      <p class="hero-description">
-        Restaurant Brands • Hospitality Management • Restaurant Consulting
+    </article>
+
+  </div>
+
+</section>
+
+
+<section id="services" class="section">
+
+  <div class="section-head">
+
+    <div class="kicker">
+      OUR EXPERTISE
+    </div>
+
+    <h2>
+      From concept to operation.
+    </h2>
+
+    <div class="arabic-title">
+      خدماتنا
+    </div>
+
+  </div>
+
+
+  <div class="services">
+
+    <div class="service">
+
+      <span>01</span>
+
+      <h3>
+        Brand Development
+      </h3>
+
+      <p>
+        Concept, identity and guest experience.
       </p>
 
     </div>
 
-  </header>
 
+    <div class="service">
 
-  <!-- NAVIGATION -->
+      <span>02</span>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="#about">About Us</a>
-      <a href="#branches">Our Branches</a>
-      <a href="#services">Our Services</a>
-      <a href="#standards">Our Standards</a>
-    </div>
-  </nav>
+      <h3>
+        Hospitality Management
+      </h3>
 
-
-  <!-- ABOUT -->
-
-  <section class="section" id="about">
-
-    <div class="section-box">
-
-      <h2>About Us</h2>
-
-      <div class="section-title-ar">
-        من نحن
-      </div>
-
-      <div class="gold-line"></div>
-
-      <div class="about-text">
-
-        <p>
-          ALSAFATLI GROUP is a hospitality group focused on creating,
-          developing and managing distinctive restaurant brands.
-          Our approach combines authentic identity, professional
-          operations and consistent standards to create memorable
-          guest experiences.
-        </p>
-
-        <p class="arabic">
-          مجموعة الصفتلي للضيافة هي مجموعة متخصصة في تطوير وإدارة
-          العلامات التجارية للمطاعم، من خلال الجمع بين الهوية الأصيلة
-          والإدارة المهنية والمعايير التشغيلية الواضحة لتقديم تجربة
-          ضيافة مميزة ومستدامة.
-        </p>
-
-      </div>
+      <p>
+        Professional systems and performance.
+      </p>
 
     </div>
 
-  </section>
+
+    <div class="service">
+
+      <span>03</span>
+
+      <h3>
+        Restaurant Consulting
+      </h3>
+
+      <p>
+        Development, operations and improvement.
+      </p>
+
+    </div>
 
 
-  <!-- BRANCHES -->
+    <div class="service">
 
-  <section class="section" id="branches">
+      <span>04</span>
 
-    <div class="section-box">
+      <h3>
+        Operations &amp; Standards
+      </h3>
 
-      <h2>Our Branches</h2>
+      <p>
+        Consistency, quality and clear procedures.
+      </p>
 
-      <div class="section-title-ar">
-        فروعنا
-      </div>
+    </div>
 
-      <div class="gold-line"></div>
+  </div>
 
-      <div class="branches">
-
-        <!-- MAR TAQLA -->
-
-        <div class="branch">
-
-          <div class="branch-image">
-            MAR TAQLA IMAGE
-          </div>
-
-          <div class="branch-content">
-
-            <h3>MAR TAQLA Restaurants</h3>
-
-            <div class="location">
-              Maaloula, Syria
-            </div>
-
-            <p class="arabic">
-              مطاعم مار تقلا
-            </p>
-
-            <p>
-              A distinctive hospitality destination in the historic
-              town of Maaloula, bringing together Syrian heritage,
-              cuisine and hospitality.
-            </p>
-
-          </div>
-
-        </div>
+</section>
 
 
-        <!-- JOLY -->
+<section id="gallery" class="section">
 
-        <div class="branch">
+  <div class="section-head">
 
-          <div class="branch-image">
-            JOLY IMAGE
-          </div>
+    <div class="kicker">
+      THE EXPERIENCE
+    </div>
 
-          <div class="branch-content">
+    <h2>
+      A taste of our world.
+    </h2>
 
-            <h3>Joly Restaurant &amp; Café</h3>
+    <div class="arabic-title">
+      من عالمنا
+    </div>
 
-            <div class="location">
-              Bab Touma, Old Damascus, Syria
-            </div>
+  </div>
 
-            <p class="arabic">
-              مطعم وكافيه جولي
-            </p>
 
-            <p>
-              A restaurant and café located in the heart of
-              Bab Touma in Old Damascus.
-            </p>
+  <div class="gallery">
 
-          </div>
+    <div class="gallery-item big">
 
-        </div>
+      <img
+        src="./images/joly.jpg"
+        alt="Joly Restaurant & Café"
+      >
 
+    </div>
+
+
+    <div class="gallery-item">
+
+      <div class="gallery-empty">
+        <span>
+          IMAGE
+        </span>
       </div>
 
     </div>
 
-  </section>
 
+    <div class="gallery-item">
 
-  <!-- SERVICES -->
-
-  <section class="section" id="services">
-
-    <div class="section-box">
-
-      <h2>Our Services</h2>
-
-      <div class="section-title-ar">
-        خدماتنا
-      </div>
-
-      <div class="gold-line"></div>
-
-      <div class="services">
-
-        <div class="service">
-          <h3>Restaurant Brand Development</h3>
-          <p>
-            Developing restaurant concepts, identities and
-            guest experiences with a clear and consistent brand direction.
-          </p>
-        </div>
-
-        <div class="service">
-          <h3>Hospitality Management</h3>
-          <p>
-            Professional management systems designed to improve
-            operations, service quality and overall performance.
-          </p>
-        </div>
-
-        <div class="service">
-          <h3>Restaurant Consulting</h3>
-          <p>
-            Practical consulting support for restaurant development,
-            operations, standards and performance improvement.
-          </p>
-        </div>
-
-        <div class="service">
-          <h3>Operations &amp; Standards</h3>
-          <p>
-            Establishing clear operating procedures and hospitality
-            standards that support consistency and quality.
-          </p>
-        </div>
-
+      <div class="gallery-empty">
+        <span>
+          IMAGE
+        </span>
       </div>
 
     </div>
 
-  </section>
 
+    <div class="gallery-item">
 
-  <!-- STANDARDS -->
-
-  <section class="section" id="standards">
-
-    <div class="section-box">
-
-      <div class="standards">
-
-        <h2>Our Standards</h2>
-
-        <div class="section-title-ar">
-          معاييرنا
-        </div>
-
-        <div class="gold-line"></div>
-
-        <p>
-          We believe that excellence in hospitality is built through
-          consistency, attention to detail, professional operations
-          and genuine care for every guest.
-        </p>
-
-        <p class="arabic">
-          نؤمن بأن التميز في الضيافة يُبنى من خلال الاستمرارية،
-          والاهتمام بالتفاصيل، والإدارة المهنية، والحرص الحقيقي
-          على تجربة كل ضيف.
-        </p>
-
-        <p>
-          <strong>Hospitality Excellence Through Standards</strong>
-        </p>
-
+      <div class="gallery-empty">
+        <span>
+          IMAGE
+        </span>
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- FOOTER -->
+<section id="standards" class="section">
 
-  <footer>
+  <div class="standards">
 
-    <h3>ALSAFATLI GROUP</h3>
+    <div class="kicker">
+      OUR STANDARD
+    </div>
+
+    <div class="quote">
+      “Excellence is not a moment.
+      It is a standard repeated every day.”
+    </div>
+
+    <div class="arabic-title">
+      التميز ليس لحظة، بل معيار يتكرر كل يوم.
+    </div>
 
     <p>
-      Hospitality Excellence Through Standards
+      Professional operations.
+      Attention to detail.
+      Authentic hospitality.
     </p>
 
-    <p class="footer-arabic">
-      مجموعة الصفتلي للضيافة
-    </p>
+  </div>
 
-    <p>
-      Restaurant Brands • Hospitality Management • Restaurant Consulting
-    </p>
+</section>
 
-  </footer>
+
+<footer id="contact">
+
+  <div class="name">
+    ALSAFATLI GROUP
+  </div>
+
+  <div class="ar">
+    مجموعة الصفتلي للضيافة
+  </div>
+
+  <p>
+    Hospitality Excellence Through Standards
+  </p>
+
+</footer>
 
 </div>
 
