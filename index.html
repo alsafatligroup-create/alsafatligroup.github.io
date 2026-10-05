@@ -21,7 +21,7 @@ body{
   width:100%;
   overflow:hidden;
   background:
-  linear-gradient(rgba(4,8,6,.68),rgba(4,8,6,.78)),
+    linear-gradient(rgba(4,8,6,.63),rgba(4,8,6,.73)),
     url("./Emerald Marble Luxury Panels.png");
   background-size:cover;
   background-position:center;
@@ -37,25 +37,47 @@ body{
   display:flex;
   align-items:flex-end;
   overflow:hidden;
-  background:#080b09;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(3,7,5,.72) 0%,
+      rgba(6,20,14,.55) 35%,
+      rgba(7,38,25,.48) 58%,
+      rgba(3,8,6,.72) 100%
+    ),
+    url("./Emerald Marble Luxury Panels.png");
+  background-size:cover;
+  background-position:center;
 }
 
 .hero-marble{
   position:absolute;
   inset:0;
-opacity:.55;
+  opacity:.72;
   background:
     repeating-linear-gradient(
-      115deg,
-      transparent 0 120px,
-      rgba(48,91,65,.22) 123px,
-      transparent 128px
+      118deg,
+      transparent 0 105px,
+      rgba(53,112,78,.18) 108px,
+      rgba(91,151,111,.24) 111px,
+      transparent 116px 180px
     ),
     repeating-linear-gradient(
-      35deg,
-      transparent 0 210px,
-      rgba(193,172,102,.07) 213px,
-      transparent 218px
+      38deg,
+      transparent 0 180px,
+      rgba(38,91,63,.17) 184px,
+      rgba(181,157,91,.08) 187px,
+      transparent 192px 275px
+    ),
+    radial-gradient(
+      ellipse at 70% 35%,
+      rgba(36,105,72,.34),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 22% 70%,
+      rgba(24,78,53,.28),
+      transparent 44%
     );
 }
 
@@ -65,14 +87,15 @@ opacity:.55;
   background:
     linear-gradient(
       90deg,
-      rgba(3,6,4,.94) 0%,
-      rgba(4,8,6,.70) 45%,
-      rgba(4,8,6,.32) 100%
+      rgba(3,6,4,.76) 0%,
+      rgba(4,8,6,.53) 42%,
+      rgba(4,8,6,.25) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(4,7,5,.96),
-      transparent 58%
+      rgba(4,7,5,.82),
+      rgba(4,7,5,.12) 62%,
+      transparent 100%
     );
 }
 
@@ -101,7 +124,7 @@ opacity:.55;
   font-size:10px;
   letter-spacing:2px;
   line-height:1.5;
-  background:rgba(5,9,7,.45);
+  background:rgba(5,9,7,.42);
 }
 
 .eyebrow{
@@ -154,9 +177,10 @@ nav{
   justify-content:center;
   gap:4px;
   flex-wrap:wrap;
-  background:rgba(7,10,8,.97);
+  background:rgba(7,10,8,.94);
   border-bottom:1px solid rgba(205,187,120,.22);
   padding:9px 12px;
+  backdrop-filter:blur(8px);
 }
 
 nav a{
@@ -225,6 +249,12 @@ p{
   max-width:1180px;
   margin:auto;
   min-height:420px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(6,13,9,.90),
+      rgba(11,34,23,.66)
+    );
 }
 
 .intro-copy{
@@ -284,8 +314,8 @@ p{
   background:
     linear-gradient(
       0deg,
-      rgba(3,6,4,.97),
-      rgba(3,6,4,.05) 70%
+      rgba(3,6,4,.93),
+      rgba(3,6,4,.04) 70%
     );
   z-index:1;
 }
@@ -334,8 +364,14 @@ p{
   background:
     linear-gradient(
       145deg,
-      rgba(20,31,24,.92),
-      rgba(5,9,7,.98)
+      rgba(17,48,32,.78),
+      rgba(5,12,8,.92)
+    ),
+    repeating-linear-gradient(
+      125deg,
+      transparent 0 120px,
+      rgba(81,139,101,.12) 123px,
+      transparent 128px 190px
     );
   display:flex;
   align-items:center;
@@ -358,6 +394,12 @@ p{
   grid-template-columns:repeat(4,1fr);
   border-top:1px solid rgba(205,187,120,.22);
   border-bottom:1px solid rgba(205,187,120,.22);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7,14,10,.78),
+      rgba(10,31,21,.52)
+    );
 }
 
 .service{
@@ -424,7 +466,7 @@ p{
   background:
     linear-gradient(
       145deg,
-      #111a14,
+      #14271c,
       #070b08
     );
   display:flex;
@@ -450,7 +492,7 @@ p{
   background:
     linear-gradient(
       145deg,
-      #101712,
+      #101f16,
       #080c0a
     );
 }
@@ -468,7 +510,12 @@ footer{
   border-top:1px solid rgba(205,187,120,.22);
   padding:50px 28px;
   text-align:center;
-  background:#050705;
+  background:
+    linear-gradient(
+      145deg,
+      #060b08,
+      #050705
+    );
 }
 
 footer .name{
@@ -503,8 +550,28 @@ footer p{
     font-size:8px;
   }
 
+  .hero{
+    min-height:580px;
+  }
+
   .hero-content{
     padding:120px 22px 55px;
+  }
+
+  .hero-overlay{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3,6,4,.70) 0%,
+        rgba(4,8,6,.46) 55%,
+        rgba(4,8,6,.25) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4,7,5,.78),
+        rgba(4,7,5,.08) 62%,
+        transparent 100%
+      );
   }
 
   .intro{
